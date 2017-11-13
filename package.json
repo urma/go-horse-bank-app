@@ -1,0 +1,25 @@
+{
+  "name": "go-horse-bank-app",
+  "version": "0.0.1",
+  "description": "Sample web application for security demonstration purposes",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/urma/go-horse-bank-app.git"
+  },
+  "keywords": [
+    "security",
+    "demo",
+    "application",
+    "insecure"
+  ],
+  "author": "ulisses.montenegro@gmail.com",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/urma/go-horse-bank-app/issues"
+  },
+  "homepage": "https://github.com/urma/go-horse-bank-app#readme"
+}

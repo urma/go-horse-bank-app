@@ -1,0 +1,18 @@
+extends ../layout.pug
+
+block content
+  h1(class="title") Go Horse Internet Banking
+  form(action='login', method='post')
+    div(class="columns")
+      div(class="column is-2")
+        label(for='username') Username:&nbsp;
+      div(class="column")
+        input(name='username', id='username')
+    div(class="columns")
+      div(class="column is-2")
+        label(for='password') Password:&nbsp;
+      div(class="column")
+        input(type='password', name='password', id='password')
+    div(class="columns")
+      div(class="column is-2")
+        input(type='submit', value='Login')

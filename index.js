@@ -27,7 +27,7 @@ app.use((req, res, next) => {
 });
 
 /* Mount controller paths */
-app.use('/login', require(path.join(__dirname, 'app', 'controllers', 'login')));
+app.use('/login', require('./app/controllers/login'));
 
 /* Start server */
 app.listen(3000, () => {

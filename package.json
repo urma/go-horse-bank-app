@@ -4,6 +4,7 @@
   "description": "Sample web application for security demonstration purposes",
   "main": "index.js",
   "scripts": {
+    "precommit": "/bin/sh precommit.sh",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {

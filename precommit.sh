@@ -2,4 +2,6 @@
 
 basedir=$(dirname $0)
 
-${basedir}/node_modules/.bin/eslint ${basedir}
+# Chain all tests and fail fast in case any of them has issues
+git-secrets --scan ${basedir} && \
+  ${basedir}/node_modules/.bin/eslint ${basedir}

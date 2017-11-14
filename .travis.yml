@@ -1,4 +1,15 @@
-language: node_js
-node_js:
-  - "7"
-  - "6"
+dist: trusty
+sudo: required
+
+addons:
+  sonarcloud:
+    organization: urma-github
+    token:
+      secure: "nM4I7Z/EPx33R7t+OY7g85zSrGApAl/UAzXfFJ9+jOIm1vDZnoPGnbSsLM2qtF0T1iEUNr9QVG2zLPYpGm2qDSyB1dfFUp7DZXLt3JimPq4SlAFvuarNV1lxlSpv/ylEoWjsMSBNqnq1/Jff0omtkpgrbNUcYTij0HZrPzDLGj0aG5lv4SeL9Gin39ZsGB7JJOX3VoKXxDSJ4y+xI8fLiCxj0h54RWvwzcLOlPmjnxwS5tH/2Eg3+h9bvUC8ew5KQE/0j2c9ojKyAubroMPxvc1E+VqaGIKkfzb0XFUg4bBlKBoUNd6+RTMSqvRrWQ7rDnum7zohho/3rJ3z5bx/y+FIQ/r7OPq3j+FwmAeIOodPTP0MrKFBPT9illwSsqg3nTYRS8WdphYgpkqik0FQNhoTDSF8zf0ZrsKQer+XpWh+DepO/AU0D43MGkmKrTtiGKKJCXDAZHLh0hLTjQ9cVfN8k5mxXTawwbe/yKWSGklHYXQGldnn3vMgYrYkndTiQ3QYHncjcvIBpgwY1BZEFmkvs0KfJTu+xEZ/IfDBqluaSrpgWtPxJrf8SrM7+s3+yC4xdzrx7zKdrfLDLFfJ9H8u5Kd3B+Y2hnPxW6zeDUWY9n1VEUtakH4trQ30ZRJ7cJ+GHbNzo+Ha1IdM579QiUlT461NbCLi0uQh+kb+n7o="
+jdk:
+  - oraclejdk8
+script:
+  - sonar-scanner
+cache:
+  directories:
+    - '$HOME/.sonar/cache'

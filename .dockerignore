@@ -2,3 +2,5 @@ node_modules
 build.sh
 precommit.sh
 Dockerfile
+.scannerwork/
+go-horse.db

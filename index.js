@@ -5,11 +5,13 @@ const winston = require('winston');
 
 const app = express();
 
+/* Application globals */
 app.locals.logger = new winston.Logger({
   transports: [
     new winston.transports.Console({ colorize: true, timestamp: true }),
   ],
 });
+app.locals.models = require('./app/models');
 
 /* Enable request body parsing */
 app.use(bodyParser.json());
@@ -30,6 +32,8 @@ app.use((req, res, next) => {
 app.use('/login', require('./app/controllers/login'));
 
 /* Start server */
-app.listen(3000, () => {
-  app.locals.logger.info('Web server started at http://127.0.0.1:3000/');
+app.locals.models.sequelize.sync().then(() => {
+  app.listen(3000, () => {
+    app.locals.logger.info('Web server started at http://127.0.0.1:3000/');
+  });
 });

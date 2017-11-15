@@ -10,4 +10,18 @@ html
   body
     section(class="section")
       div(class="container")
-        block content
+        div(class="columns")
+          div(class="column")
+            h1(class="title") Go Horse Internet Banking
+        div(class="columns")
+          div(class="column")
+            //- error message, when present
+            if flash
+              article(class=[ "message", flash.type ].join(' '))
+                div(class="message-header")
+                  p= flash.title
+                  button(class="delete", aria-label="delete")
+                div(class="message-body")
+                  = flash.message
+            
+            block content

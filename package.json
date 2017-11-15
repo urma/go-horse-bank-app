@@ -27,12 +27,16 @@
     "eslint": "^4.11.0",
     "eslint-config-airbnb-base": "^12.1.0",
     "eslint-plugin-import": "^2.8.0",
-    "husky": "^0.14.3"
+    "husky": "^0.14.3",
+    "mocha": "^4.0.1"
   },
   "dependencies": {
+    "bcrypt": "^1.0.3",
     "body-parser": "^1.18.2",
     "express": "^4.16.2",
     "pug": "^2.0.0-rc.4",
+    "sequelize": "^4.22.6",
+    "sqlite3": "^3.1.13",
     "winston": "^2.4.0"
   }
 }

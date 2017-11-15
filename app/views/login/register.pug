@@ -2,7 +2,7 @@ extends ../layout.pug
 
 block content
   //- login form
-  form(action="/login", method="post")
+  form(action="/login/register", method="post")
     div(class="field")
       label(class="label") Email
       div(class="control has-icons-left")
@@ -15,8 +15,12 @@ block content
         input(class="input", name="password", type="password")
         span(class="icon is-small is-left")
           i(class="fa fa-lock")
+    div(class="field")
+      label(class="label") Confirm Password
+      div(class="control has-icons-left")
+        input(class="input", name="confirm-password", type="password")
+        span(class="icon is-small is-left")
+          i(class="fa fa-lock")
     div(class="control")
       button(class="button is-primary") Login
   
-  p
-    a(href="/login/register") Register

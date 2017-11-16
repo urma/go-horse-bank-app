@@ -1,5 +1,6 @@
 # Go Horse Internet Banking
 ![Travis badge](https://travis-ci.org/urma/go-horse-bank-app.svg?branch=master)
+![snyk badge](https://snyk.io/test/github/urma/go-horse-bank-app/badge.svg)
 
 This is a sample application for secdevops demonstration purposes. For more information, please check:
 * https://travis-ci.org/urma/go-horse-bank-app

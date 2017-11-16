@@ -1,7 +1,7 @@
 /* eslint-disable func-names */
 /* eslint-disable space-before-function-paren */
 
-const bcrypt = require('bcrypt');
+const bcrypt = require('bcryptjs');
 const Sequelize = require('sequelize');
 
 const UserModelFactory = function(sequelize) {
@@ -39,7 +39,7 @@ const UserModelFactory = function(sequelize) {
   /* Populate password hash from plaintext password using bcrypt */
   UserModel.prototype.setPassword = function(password) {
     return new Promise((resolve) => {
-      bcrypt.hash(password, 0x10000).then((hash) => {
+      bcrypt.hash(password, 0x10).then((hash) => {
         this.setDataValue('passwordHash', hash);
         return resolve(this);
       });

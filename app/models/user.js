@@ -61,6 +61,23 @@ const UserModelFactory = function(sequelize) {
     });
   };
 
+  UserModel.insecureAuthentication = function(email, password) {
+    return new Promise((resolve) => {
+      // eslint-disable-next-line prefer-template
+      const query = "SELECT * FROM users WHERE user.email = '" + email +
+        "' LIMIT 1";
+      sequelize.query(query, { model: UserModel }).then((user) => {
+        // eslint-disable-next-line arrow-body-style
+        bcrypt.compare(password, user.passwordHash).then((result) => {
+          return result ? resolve(user) : resolve(null);
+        // eslint-disable-next-line arrow-body-style
+        }).catch(() => {
+          return null;
+        });
+      });
+    });
+  };
+
   return UserModel;
 };
 

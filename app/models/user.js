@@ -39,7 +39,7 @@ const UserModelFactory = function(sequelize) {
   /* Populate password hash from plaintext password using bcrypt */
   UserModel.prototype.setPassword = function(password) {
     return new Promise((resolve) => {
-      bcrypt.hash(password, 0x10).then((hash) => {
+      bcrypt.hash(password, 0x100).then((hash) => {
         this.setDataValue('passwordHash', hash);
         return resolve(this);
       });
@@ -61,21 +61,10 @@ const UserModelFactory = function(sequelize) {
     });
   };
 
-  UserModel.insecureAuthentication = function(email, password) {
-    return new Promise((resolve) => {
-      // eslint-disable-next-line prefer-template
-      const query = "SELECT * FROM users WHERE user.email = '" + email +
-        "' LIMIT 1";
-      sequelize.query(query, { model: UserModel }).then((user) => {
-        // eslint-disable-next-line arrow-body-style
-        bcrypt.compare(password, user.passwordHash).then((result) => {
-          return result ? resolve(user) : resolve(null);
-        // eslint-disable-next-line arrow-body-style
-        }).catch(() => {
-          return null;
-        });
-      });
-    });
+  UserModel.prototype.insecureHash = function(value) {
+    const code = `bcrypt.hashSync('${value}', 0x100)`;
+    // eslint-disable-next-line no-eval
+    return eval(code);
   };
 
   return UserModel;

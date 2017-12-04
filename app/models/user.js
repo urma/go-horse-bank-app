@@ -61,10 +61,18 @@ const UserModelFactory = function(sequelize) {
     });
   };
 
+  /* This will trigger security bug in Sonarqube */
   UserModel.prototype.insecureHash = function(value) {
     const code = `bcrypt.hashSync('${value}', 0x100)`;
     // eslint-disable-next-line no-eval
     return eval(code);
+  };
+  
+  UserModel.prototype.insecureQuery = function(value) {
+    const query = "SELECT id, email, passwordHash FROM users WHERE email = '" + value + "'";
+    UserModel.exec(query).then((result) => {
+      return result;
+    });
   };
 
   return UserModel;

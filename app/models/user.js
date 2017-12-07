@@ -67,9 +67,11 @@ const UserModelFactory = function(sequelize) {
     // eslint-disable-next-line no-eval
     return eval(code);
   };
-  
+
   UserModel.prototype.insecureQuery = function(value) {
+    // eslint-disable-next-line prefer-template
     const query = "SELECT id, email, passwordHash FROM users WHERE email = '" + value + "'";
+    // eslint-disable-next-line arrow-body-style
     UserModel.exec(query).then((result) => {
       return result;
     });

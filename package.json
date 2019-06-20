@@ -24,7 +24,7 @@
   },
   "homepage": "https://github.com/urma/go-horse-bank-app#readme",
   "devDependencies": {
-    "eslint": "^4.11.0",
+    "eslint": "^4.18.2",
     "eslint-config-airbnb-base": "^12.1.0",
     "eslint-plugin-import": "^2.8.0",
     "husky": "^0.14.3",
